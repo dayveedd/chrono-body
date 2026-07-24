@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Light Mode HSL Values */
+    --bg-main: 210 20% 98%;
+    --bg-surface: 0 0% 100%;
+    --border-subtle: 214 32% 91%;
+    --text-primary: 222 47% 12%;
+    --text-muted: 215 16% 47%;
+    
+    --primary-blue: 217 91% 56%;
+    --accent-cyan: 188 86% 53%;
+    --accent-indigo: 250 95% 65%;
+    
+    --success: 142 72% 40%;
+    --warning: 38 92% 50%;
+    --error: 346 84% 55%;
+    --info: 199 89% 48%;
+  }
+
+  .dark {
+    /* Dark Mode HSL Values */
+    --bg-main: 222 47% 6%;
+    --bg-surface: 222 47% 10%;
+    --border-subtle: 217 19% 20%;
+    --text-primary: 210 40% 98%;
+    --text-muted: 215 20% 65%;
+    
+    --primary-blue: 217 91% 60%;
+    --accent-cyan: 188 86% 53%;
+    --accent-indigo: 250 95% 65%;
+  }
+
+  body {
+    background-color: hsl(var(--bg-main));
+    color: hsl(var(--text-primary));
+    font-family: var(--font-sans);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+  }
+}
+
+@theme {
+  --color-bg-main: hsl(var(--bg-main));
+  --color-bg-surface: hsl(var(--bg-surface));
+  --color-border-subtle: hsl(var(--border-subtle));
+  --color-text-primary: hsl(var(--text-primary));
+  --color-text-muted: hsl(var(--text-muted));
+  
+  --color-primary-blue: hsl(var(--primary-blue));
+  --color-accent-cyan: hsl(var(--accent-cyan));
+  --color-accent-indigo: hsl(var(--accent-indigo));
+  
+  --color-success: hsl(var(--success));
+  --color-warning: hsl(var(--warning));
+  --color-error: hsl(var(--error));
+  --color-info: hsl(var(--info));
+  
+  --font-display: "Space Grotesk", sans-serif;
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --animate-pulse-slow: pulse-slow 3s ease-in-out infinite;
+  --animate-scanline: scanline 6s linear infinite;
+
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(1.02); }
+  }
+
+  @keyframes scanline {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: hsla(var(--bg-surface), 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid hsl(var(--border-subtle));
+}
+
+.glass-card {
+  background: hsla(var(--bg-surface), 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid hsl(var(--border-subtle));
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+}
+
+.dark .glass-card {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Custom Webkit scrollbar for premium look */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border-subtle));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary-blue));
+}
