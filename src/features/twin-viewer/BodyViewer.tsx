@@ -176,8 +176,11 @@ export const BodyViewer: React.FC = () => {
     // Perform HEAD request to check if human_anatomy.glb exists in /public/models/
     fetch('/models/human_anatomy.glb', { method: 'HEAD' })
       .then((res) => {
-        if (res.status === 200) {
+        const contentType = res.headers.get('content-type') || '';
+        if (res.status === 200 && !contentType.includes('text/html')) {
           setUseGltfModel(true);
+        } else {
+          setUseGltfModel(false);
         }
       })
       .catch(() => {
