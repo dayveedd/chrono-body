@@ -61,7 +61,7 @@ export const Landing: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-5xl md:text-7xl font-bold tracking-tight text-text-primary leading-[1.05]"
           >
-            Google Maps for your <br />
+            A predictive blueprint for your <br />
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-blue via-accent-cyan to-accent-indigo">
               future health.
             </span>
