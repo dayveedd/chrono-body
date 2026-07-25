@@ -22,13 +22,13 @@ try {
 // Runtime mode config, persists in localStorage so the user can toggle live/mock in the UI
 export type DBMode = 'mock' | 'live';
 
-const MODE_STORAGE_KEY = 'chronobody_db_mode';
+const MODE_STORAGE_KEY = 'chronobody_db_mode_v2';
 
 export const getDBMode = (): DBMode => {
   const saved = localStorage.getItem(MODE_STORAGE_KEY);
   if (saved === 'live' || saved === 'mock') return saved;
-  // Default to mock to show high-fidelity preseeded visualization immediately
-  return 'mock';
+  // Default to live to utilize the live database and active APIs immediately
+  return 'live';
 };
 
 export const setDBMode = (mode: DBMode) => {
